@@ -1,8 +1,5 @@
 package com.jerry.server;
 
-/**
- * Created by 01368079 on 2017/12/12.
- */
 
 
 import io.netty.channel.ChannelFuture;
@@ -24,11 +21,7 @@ import io.netty.handler.stream.ChunkedNioFile;
 
 import java.io.RandomAccessFile;
 
-/**
- * WebSocket，处理http请求
- *
- * @author c.k
- */
+
 public class HttpRequestHandler extends
         SimpleChannelInboundHandler<FullHttpRequest> {
     //websocket标识

@@ -19,10 +19,11 @@ public class EchoServer {
     }
 
     public void start() throws Exception {
-        EventLoopGroup group = new NioEventLoopGroup();
+        EventLoopGroup bossgroup = new NioEventLoopGroup(1);
+        EventLoopGroup workergroup = new NioEventLoopGroup();
         try {
             ServerBootstrap b = new ServerBootstrap();
-            b.group(group).channel(NioServerSocketChannel.class).localAddress(port)
+            b.group(bossgroup,workergroup).channel(NioServerSocketChannel.class).localAddress(port)
                     .childHandler(new ChannelInitializer<Channel>() {
                         protected void initChannel(Channel ch) throws Exception {
                             ch.pipeline().addLast(new EchoServerHandler());
@@ -33,7 +34,8 @@ public class EchoServer {
                     " ten on " + f.channel().localAddress());
             f.channel().closeFuture().sync();
         } finally {
-            group.shutdownGracefully().sync();
+            bossgroup.shutdownGracefully().sync();
+            workergroup.shutdownGracefully().sync();
         }
     }
 
