@@ -31,7 +31,7 @@ public class EchoServer {
                     });
             ChannelFuture f = b.bind().sync();
             System.out.println(EchoServer.class.getName() + "started and lis" +
-                    " ten on " + f.channel().localAddress());
+                    "ten on " + f.channel().localAddress());
             f.channel().closeFuture().sync();
         } finally {
             bossgroup.shutdownGracefully().sync();

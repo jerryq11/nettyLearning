@@ -16,7 +16,7 @@ class HttpServerHandler extends ChannelInboundHandlerAdapter {
 
             // 请求，解码器将请求转换成HttpRequest对象
             long start = System.currentTimeMillis();
-            Thread.sleep(5000);
+//            Thread.sleep(5000);
 
             HttpRequest request = (HttpRequest) msg;
 
