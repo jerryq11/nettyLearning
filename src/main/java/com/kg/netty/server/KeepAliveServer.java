@@ -53,7 +53,6 @@ public class KeepAliveServer {
             f = b.bind(port).sync();
             // 监听服务器关闭监听，此方法会阻塞
             f.channel().closeFuture().sync();
-            /* b.bind(portNumber).sync().channel().closeFuture().sync(); */
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
@@ -163,7 +162,6 @@ public class KeepAliveServer {
             if (localMsgInfo.get() != null) {
                 System.out.println(localMsgInfo.get().getSn() + "连接断开");
             }
-//		    System.out.println("===服务端===(客户端失效)");
         }
     }
 

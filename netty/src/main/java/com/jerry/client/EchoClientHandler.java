@@ -14,7 +14,7 @@ import io.netty.util.CharsetUtil;
 public class EchoClientHandler extends SimpleChannelInboundHandler {
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        ctx.write(Unpooled.copiedBuffer("Netty rocks!", CharsetUtil.UTF_8));
+        ctx.write(Unpooled.copiedBuffer("Netty hello!", CharsetUtil.UTF_8));
         ctx.flush();
     }
 
